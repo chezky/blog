@@ -1,0 +1,241 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Chezky</title>
+		<link>https://chezky.com/posts/</link>
+		<description>Recent content in Posts on Chezky</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Tue, 12 Jan 2021 21:31:55 +0200</lastBuildDate>
+		<atom:link href="https://chezky.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Functions</title>
+			<link>https://chezky.com/posts/functions/</link>
+			<pubDate>Tue, 12 Jan 2021 21:31:55 +0200</pubDate>
+			
+			<guid>https://chezky.com/posts/functions/</guid>
+			<description>Functions are the building blocks of coding. They allow you to create reusable and flexible code, and help keep code duplication to a minimum. As a general rule of thumb, if you notice yourself coping and pasting a few-plus lines of code, chances are, that code should become a function. Imagine every time you wanted to print something out, you had to allocate bytes and set a buffer and do a bunch of random stuff.</description>
+			<content type="html"><![CDATA[<p>Functions are the building blocks of coding. They allow you to create reusable and flexible code, and help
+keep code duplication to a minimum. As a general rule of thumb, if you notice yourself coping and pasting a few-plus
+lines of code, chances are, that code should become a function. Imagine every time you wanted to print something out,
+you had to allocate bytes and set a buffer and do a bunch of random stuff. You would go insane. Thankfully we have a
+print function, which actually does all that stuff behind the scenes, and allows us to print anything using only one line.</p>
+<p>Functions are comprised of a few things. Let&rsquo;s take a look at a simple function, and we will break it down piece by piece.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>We first declare our intention to create a function by using the <code>func</code> keyword. The next word that follows func is the
+name we are giving our function. In our case we called our function sum. Immediately after naming our function, we
+create parentheses, and assign the &ldquo;parameters&rdquo; of our function. Let&rsquo;s discuss a bit what parameters are, as they can
+get pretty confusing.</p>
+<h2 id="parameters">Parameters</h2>
+<p>Picture this scenario. You are creating a program that allows a user to input any number, and your program will print
+that number cubed. E.g. <code>5 -&gt; 5*5*5</code>. Let&rsquo;s create a cubed function that does exactly that.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang">
+<span class="kd">func</span> <span class="nf">cubed</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>Here we named our function cubed, and we gave the function a parameter called <code>num</code> that has a type <code>int</code>. In order to
+fully understand what this parameter does, we need to see what happens when we call this function.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="nf">cubed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nf">cubed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nf">cubed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="c1">// Output:
+</span><span class="c1">// 1000
+</span><span class="c1">// 125
+</span><span class="c1">// 512
+</span></code></pre></div><p>The parameter <code>num</code> became whatever number we passed in the parentheses during the function call. First <code>num</code> became 10,
+then 5, then 8. Parameters are what enable functions to be so versatile. Instead of writing <code>fmt.Println(5*5*5)</code>, we can
+just use a function parameter that will change dynamically. Parameters are kinda like variables for functions, that
+get values when you call the function.</p>
+<h2 id="arguments">Arguments</h2>
+<p>To run a function is to call it. When you call a function that has one or more parameters, you must &ldquo;pass in&rdquo; arguments.
+Arguments are the values you want the function parameters to become. Using our cubed example, when I call cubed below
+I pass in the argument 5. Take a look.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">cubed</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">cubed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div><p>In this example <code>5</code> is called an argument. The function parameter <code>num</code> became <code>5</code>, since the argument given was 5.
+Going back to our fist example of the function <code>sum</code>, lets now call it passing in arguments, and see what happens.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="c1">// Output:
+</span><span class="c1">// 25
+</span></code></pre></div><p>Run the code <a href="https://play.golang.org/p/J_5k5juG_cD">here</a> and play around with the arguments. Understand exactly what
+they do, and how they directly relate to parameters. To sum up parameters and arguments, parameters are the &ldquo;variables&rdquo;
+of a function that are specified during the function creation, and arguments are the values you want those parameters to
+become when you call the function.</p>
+<h2 id="return-values">Return Values</h2>
+<p>So currently our cubed function just prints out a number cubed. What if instead of printing it out, we wanted to store
+that value in a variable for later usage? Let&rsquo;s create a variable called <code>numCubed</code> that will store our number
+cubed. Inside <code>cubed</code>, instead of printing out <code>num</code> cubed, lets set <code>numCubed</code> to <code>num</code> cubed.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">var</span> <span class="nx">numCubed</span> <span class="kt">int</span>
+
+<span class="kd">func</span> <span class="nf">cubed</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">numCubed</span> <span class="p">=</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> 	
+<span class="p">}</span>
+
+<span class="nf">cubed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">numCubed</span><span class="p">)</span>
+<span class="c1">// Output:
+</span><span class="c1">// 125
+</span></code></pre></div><p>Try it out <a href="https://play.golang.org/p/L7at3AiAZLg">here</a>. Although this current implementation does work, it is quite
+pathetic. For one, if we call <code>cubed</code> again with a different argument, we lost the previous value of numCubed. Also,
+it&rsquo;s best to avoid creating unnecessary global variables.</p>
+<p>What if we could do something like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">cubed</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">&#34;send back:&#34;</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> 	
+<span class="p">}</span>
+
+<span class="nx">numCubed</span> <span class="o">:=</span> <span class="nf">cubed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">// 125
+</span><span class="c1"></span><span class="nx">differentNumCubed</span> <span class="o">:=</span> <span class="nf">cubed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1">// 1000
+</span></code></pre></div><p>Enter return values. A return value allows you to send back a value that you can then store away in a variable.
+Let&rsquo;s see what our <code>cubed</code> function looks like with a <code>return</code> statement.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">cubed</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">num</span> 
+<span class="p">}</span>
+
+<span class="nx">numCubed</span> <span class="o">:=</span> <span class="nf">cubed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">numCubed</span><span class="p">)</span>
+<span class="c1">// Output:
+</span><span class="c1">// 125
+</span></code></pre></div><p>Try out the <a href="https://play.golang.org/p/wgUx4GRgoFM">code</a> and you will see <code>numCubed</code> gets the value that cubed returns.
+In order to return a value in golang, you must specify the return <code>type</code>. In our function <code>cubed</code> we are returning an int,
+but in a different function you might want to return a string instead. In
+golang, you can actually return multiple values, but most languages will limit you to one value.</p>
+<p>Good Luck!</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Dive Into For Loops</title>
+			<link>https://chezky.com/posts/forloop/</link>
+			<pubDate>Mon, 11 Jan 2021 22:04:50 +0200</pubDate>
+			
+			<guid>https://chezky.com/posts/forloop/</guid>
+			<description>For loops were a concept that I had a tremendous amount of trouble understanding when I first began to code. I knew that a loop worked as follows: It ran some amount of times and did something each time it ran. Nothing much more than that. What did the code i++ do? Or how did the code i := 0 affect anything. I mean unclear.
+Let’s begin by taking a look at a simple for loop:</description>
+			<content type="html"><![CDATA[<p>For loops were a concept that I had a tremendous amount of trouble understanding when I first began to
+code. I knew that a loop worked as follows: It ran some amount of times and did something each time it ran.
+Nothing much more than that. What did the code <code>i++</code> do? Or how did the code <code>i := 0</code> affect
+anything. I mean unclear.</p>
+<p>Let’s begin by taking a look at a
+simple for loop:</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="k">for</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;wow!&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>We begin with the keyword <code>for</code>, which quite simply says, &ldquo;run this next bit forever.&rdquo; This loop is called an
+infinite loop, and will run forever. Unfortunately this can sometimes cause a program to crash, so we always
+try to avoid running infinite loops.</p>
+<p>Let&rsquo;s add a <code>break</code> statement which will tell our loop to stop.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="k">for</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;wow!&#34;</span><span class="p">)</span>
+	<span class="k">break</span>
+<span class="p">}</span>
+</code></pre></div><p>Try to run this code <a href="https://play.golang.org/p/SL9JPRoVdGV">here</a> and you will notice that it prints the
+word &ldquo;wow!&rdquo; exactly once. So that is not exactly a loop, as it only runs once. How could we create a way that
+the loop will run lets say 5 times, and then call break.</p>
+<p>Something like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="k">for</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;wow!&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="s">&#34;loop has run 5 times&#34;</span> <span class="p">{</span>
+	    <span class="k">break</span>
+	<span class="p">}</span>   
+<span class="p">}</span>
+<span class="nx">Output</span><span class="p">:</span>
+<span class="c1">//wow!
+</span></code></pre></div><p>What we are missing is some sort of way to keep track of how many times our loop has run. Let&rsquo;s create an
+index called <code>i</code>, and set <code>i</code> to <code>0</code>. Each time the loop runs, we will increment <code>i</code> by <code>1</code>. This way we can
+always keep track of how many times our loops has run.</p>
+<p>For example, the first time the loop runs, <code>i = 0</code>. Then inside the loop, we increment <code>i</code> by <code>1</code>. Now the
+loop runs again with <code>i = 1</code>, and again, before the loop finishes we increment <code>i</code>. This will keep happening
+until <code>i = 5</code>, and then we break the loop. Let&rsquo;s see this in code.</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;wow!&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">5</span> <span class="p">{</span>
+	    <span class="k">break</span>
+	<span class="p">}</span>   
+	<span class="nx">i</span><span class="o">++</span>
+<span class="p">}</span>
+<span class="nx">Output</span><span class="p">:</span>
+<span class="c1">//wow!, 0
+</span><span class="c1">//wow!, 1
+</span><span class="c1">//wow!, 2
+</span><span class="c1">//wow!, 3
+</span><span class="c1">//wow!, 4
+</span><span class="c1">//wow!, 5
+</span></code></pre></div><p>Try to <a href="https://play.golang.org/p/OCZuQZxWEc9">run</a> the code, and you will notice that it prints out &ldquo;wow!&rdquo;,
+a total of 6 times. This is because <code>i</code> is initially <code>0</code>, and increments by <code>1</code> right before the loop
+finishes. Since <code>i</code> starts at <code>0</code>, the loop runs <code>6</code> times before <code>i</code> is equal to <code>5</code>. If it were to start
+at 1, then it would run only 5 times.</p>
+<p>It&rsquo;s also incredibly important in for loops, to always track and understand what the value of <code>i</code> is. Print
+it out frequently, and don&rsquo;t move forward until you understand the role <code>i</code> plays in a loop. It is not just
+an index though. <code>i</code> has an incredible power. Since it increments by 1 each time a loop runs, it can
+allow you to have your loop do something different each time it runs.</p>
+<p>Take this as an example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">{</span>
+        <span class="k">break</span>
+    <span class="p">}</span>
+    <span class="nx">i</span><span class="o">++</span>
+<span class="p">}</span>
+<span class="nx">Output</span><span class="p">:</span>
+<span class="c1">// 0
+</span><span class="c1">// 100
+</span><span class="c1">// 200 
+</span><span class="c1">// 300
+</span></code></pre></div><p>In this trivial example, we printed out <code>i * 100</code> each time the loop ran. If that was something you needed,
+I mean there you go. In a real application, this could allow you to print out the value of an array at
+position <code>i</code>.</p>
+<p>So our code is begging to get a bit messy. We have some index which allows us to keep track of how many times
+the loop ran, and an if statement which checks if the loop ran x amount of times and should end. Imagine a
+world where all that code could fit into one line. It would look something like our current world in fact.</p>
+<p>Check this out:</p>
+<div class="highlight"><pre class="chroma"><code class="language-golang" data-lang="golang"><span class="k">for</span> <span class="nx">i</span><span class="o">:=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;hi!&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">Output</span><span class="p">:</span>
+<span class="c1">//hi! 0
+</span><span class="c1">//hi! 1
+</span><span class="c1">//hi! 2
+</span><span class="c1">//hi! 3
+</span><span class="c1">//hi! 4
+</span></code></pre></div><p>Let&rsquo;s break this down bit by bit. First we create our index <code>i</code> and set it to 0. <code>i := 0</code>. Next, we have our
+&ldquo;if statement&rdquo;. The condition that checks if the loop should break. This is a bit tricky, as it runs as long
+as the condition returns true, and breaks when it is false. <code>i &lt; 5</code> will return true until <code>i</code> becomes <code>5</code>,
+and you might know that <code>5</code> is not less than <code>5</code>. The final bit of this code is <code>i++</code>. This sets the value
+of <code>i</code> to be <code>+ 1</code> of its previous value. If <code>i</code> begins at <code>0</code>, this bit will set <code>i</code> to <code>1</code> when the loop
+finishes for the first time.</p>
+<p>Try playing around with this code, for example instead of <code>i++</code>, try setting the bit to <code>i+=2</code>. My advice
+for learning loops is to always print out the value of the index whenever you get confused, and to play
+around with each variable until you truly understand it. The importance of loops cannot be stressed enough,
+and it would be a shame to dread writing one. Good luck! As always, never copy and paste if you are learning!</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Welcome</title>
+			<link>https://chezky.com/posts/welcome/</link>
+			<pubDate>Mon, 11 Jan 2021 16:16:12 +0200</pubDate>
+			
+			<guid>https://chezky.com/posts/welcome/</guid>
+			<description>Welcome to my blog! I will try, with G-ds help, to post some tutorials and explanations of core / interesting coding concepts. I hope to create some guides on how to create your own blockchain, learn golang, and perhaps deep dive into some beginner concepts. Feel free to reach out with any questions or comments.</description>
+			<content type="html"><![CDATA[<p>Welcome to my blog! I will try, with G-ds help, to post some tutorials and explanations of core / interesting
+coding concepts. I hope to create some guides on how to create your own blockchain, learn golang, and perhaps
+deep dive into some beginner concepts. Feel free to reach out with any questions or comments.</p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>begginer on Chezky</title>
+    <link>https://chezky.com/tags/begginer/</link>
+    <description>Recent content in begginer on Chezky</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 12 Jan 2021 21:31:55 +0200</lastBuildDate><atom:link href="https://chezky.com/tags/begginer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functions</title>
+      <link>https://chezky.com/posts/functions/</link>
+      <pubDate>Tue, 12 Jan 2021 21:31:55 +0200</pubDate>
+      
+      <guid>https://chezky.com/posts/functions/</guid>
+      <description>Functions are the building blocks of coding. They allow you to create reusable and flexible code, and help keep code duplication to a minimum. As a general rule of thumb, if you notice yourself coping and pasting a few-plus lines of code, chances are, that code should become a function. Imagine every time you wanted to print something out, you had to allocate bytes and set a buffer and do a bunch of random stuff.</description>
+    </item>
+    
+    <item>
+      <title>Dive Into For Loops</title>
+      <link>https://chezky.com/posts/forloop/</link>
+      <pubDate>Mon, 11 Jan 2021 22:04:50 +0200</pubDate>
+      
+      <guid>https://chezky.com/posts/forloop/</guid>
+      <description>For loops were a concept that I had a tremendous amount of trouble understanding when I first began to code. I knew that a loop worked as follows: It ran some amount of times and did something each time it ran. Nothing much more than that. What did the code i++ do? Or how did the code i := 0 affect anything. I mean unclear.
+Let’s begin by taking a look at a simple for loop:</description>
+    </item>
+    
+  </channel>
+</rss>
